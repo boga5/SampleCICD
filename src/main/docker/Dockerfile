@@ -6,8 +6,7 @@ VOLUME /logs
 VOLUME /configs
 
 # ADD ../libs /libs
-CMD 'sh pwd'
-ADD ./target/sampleproject-0.0.1-SNAPSHOT.jar app.jar
+ADD sampleproject-0.0.1-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS="-Dserver.port=6400"
 ENTRYPOINT [ "java","-jar","app.jar" ]
