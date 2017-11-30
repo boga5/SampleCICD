@@ -5,6 +5,6 @@ services:
     volumes:
         - ./mock/OM/:/mock_mapping
   app:
-    build: 
-        context: .
-        dockerfile: src/main/docker/Dockerfile
+    build: .
+    depends_on:
+      - mock
