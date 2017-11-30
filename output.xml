@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20171130 07:03:39.359" generator="Robot 3.0.2 (Python 2.7.5 on linux2)">
+<suite source="/home/ec2-user/SampleCICD/robot/tests/sampletest.robot" id="s1" name="Sampletest">
+<test id="s1-t1" name="Connect To Database And Execute Query">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to</doc>
+<arguments>
+<arg>cx_Oracle</arg>
+<arg>${dbConnectionStr}</arg>
+</arguments>
+<msg timestamp="20171130 07:03:39.457" level="FAIL">ImportError: No module named cx_Oracle</msg>
+<status status="FAIL" endtime="20171130 07:03:39.457" starttime="20171130 07:03:39.456"></status>
+</kw>
+<status status="FAIL" endtime="20171130 07:03:39.457" critical="yes" starttime="20171130 07:03:39.455">ImportError: No module named cx_Oracle</status>
+</test>
+<test id="s1-t2" name="Send API Get Request">
+<kw name="Send Get Request" library="common">
+<arguments>
+<arg>${hostname}</arg>
+<arg>${port}</arg>
+<arg>${uri}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20171130 07:03:39.459" level="INFO">${header} = {u'Content-type': u'application/json'}</msg>
+<status status="PASS" endtime="20171130 07:03:39.459" starttime="20171130 07:03:39.458"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>test</arg>
+<arg>http://${hostname}:${port}</arg>
+</arguments>
+<msg timestamp="20171130 07:03:39.460" level="INFO">Creating Session using : alias=test, url=http://52.67.84.183:6050, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20171130 07:03:39.460" starttime="20171130 07:03:39.459"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>test</arg>
+<arg>${uri}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20171130 07:03:39.464" level="FAIL">TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'</msg>
+<status status="FAIL" endtime="20171130 07:03:39.464" starttime="20171130 07:03:39.460"></status>
+</kw>
+<status status="FAIL" endtime="20171130 07:03:39.464" starttime="20171130 07:03:39.458"></status>
+</kw>
+<status status="FAIL" endtime="20171130 07:03:39.465" critical="yes" starttime="20171130 07:03:39.457">TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'</status>
+</test>
+<test id="s1-t3" name="Send API Post Request">
+<kw name="Send Post Request" library="common">
+<arguments>
+<arg>${hostname}</arg>
+<arg>${port}</arg>
+<arg>${uri}</arg>
+<arg>\{\"id\"\:\"1\"\}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20171130 07:03:39.467" level="INFO">${header} = {u'Content-type': u'application/json'}</msg>
+<status status="PASS" endtime="20171130 07:03:39.467" starttime="20171130 07:03:39.466"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>test</arg>
+<arg>http://${hostname}:${port}</arg>
+</arguments>
+<msg timestamp="20171130 07:03:39.467" level="INFO">Creating Session using : alias=test, url=http://52.67.84.183:6050, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20171130 07:03:39.468" starttime="20171130 07:03:39.467"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>test</arg>
+<arg>${uri}</arg>
+<arg>data=${reqbody}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${resp}</var>
+</assign>
+<msg timestamp="20171130 07:03:39.470" level="FAIL">TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'</msg>
+<status status="FAIL" endtime="20171130 07:03:39.470" starttime="20171130 07:03:39.468"></status>
+</kw>
+<status status="FAIL" endtime="20171130 07:03:39.470" starttime="20171130 07:03:39.465"></status>
+</kw>
+<status status="FAIL" endtime="20171130 07:03:39.470" critical="yes" starttime="20171130 07:03:39.465">TypeError: unsupported operand type(s) for -=: 'Retry' and 'int'</status>
+</test>
+<status status="FAIL" endtime="20171130 07:03:39.471" starttime="20171130 07:03:39.361"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="3" pass="0">Critical Tests</stat>
+<stat fail="3" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="3" id="s1" name="Sampletest" pass="0">Sampletest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
