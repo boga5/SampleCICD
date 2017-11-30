@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mock:
+    build: ./mock
+    volumes:
+        - ./mock/OM/:/mock_mapping
+  app:
+    build: 
+        context: .
+        dockerfile: src/main/docker/Dockerfile
