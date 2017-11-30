@@ -5,7 +5,7 @@ VOLUME /logs
 VOLUME /configs
 RUN sh -c 'pwd'
 RUN sh -c 'ls -la'
-ADD libs /libs
+ADD lib /lib
 ADD sampleproject-0.0.1-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS="-Dserver.port=6400"
