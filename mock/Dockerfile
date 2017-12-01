@@ -8,7 +8,7 @@ RUN apk add --update bash && rm -rf /var/cache/apk/*
 VOLUME /logs
 VOLUME /mock_mapping
 
-RUN curl "http://10.240.17.13:80/artifactory/fortna-product-tools/wiremock/wiremock-standalone/wiremock-standalone-2.10.1.jar" --output wiremock-standalone.jar
+RUN curl "http://central.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.10.1/wiremock-standalone-2.10.1.jar" --output wiremock-standalone.jar
 # ADD wiremock-standalone-2.10.1.jar wiremock-standalone.jar
 RUN sh -c 'touch /wiremock-standalone.jar'
 
