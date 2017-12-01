@@ -3,4 +3,4 @@ HOSTNAME=$1
 PORT=$2
 DBURL=$3
 pwd
-pybot --variable hostname:${HOSTNAME} --variable port:${PORT} --variable dbConnectionStr:${DBURL} ./tests/sampletest.robot
+pybot --variable hostname:${HOSTNAME} --variable port:${PORT} --variable dbConnectionStr:${DBURL} ../tests/sampletest.robot
